@@ -21,3 +21,13 @@
   transition: border-color 0.2s ease-in-out;
   border-color: rgb(241, 80, 80);
 }
+
+.flash {
+  display: block;
+  margin: 0.5rem 0;
+  text-align: right;
+  margin-left: auto;
+  font-weight: bold;
+  font-size: 0.7rem;
+  color: rgb(241, 80, 80);
+}

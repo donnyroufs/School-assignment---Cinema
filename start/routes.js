@@ -16,7 +16,14 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use("Route");
 
+// @HOME PAGE
 Route.get("/", "MovieController.index");
 
+// @AUTHENTICATION
 Route.get("/login", "UserController.index");
-Route.get("/register", "UserController.create");
+Route.post("/login", "UserController.login").validator("LoginUser");
+
+Route.get("/register", "UserController.register");
+Route.post("/register", "UserController.create").validator("CreateUser");
+
+Route.get("/logout", "UserController.logout");

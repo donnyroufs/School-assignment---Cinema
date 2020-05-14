@@ -1,8 +1,15 @@
 <header class="header">
     <a href="/" class="header__logo">Cinema</a>
+    @loggedIn
+    <div class="header__menu">
+        <a href="/logout" class="header__link header__link--bold header__link--logout">log out</a>
+    </div>
+
+    @else
     <div class="header__menu">
         <a href="/register" class="header__link header__link--bold">register</a>
         /
         <a href="/login" class="header__link header__link">login</a>
     </div>
+    @endloggedIn
 </header>

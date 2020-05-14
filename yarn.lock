@@ -23,7 +23,7 @@
     prompt-list "^3.2.0"
     prompt-password "^1.2.0"
 
-"@adonisjs/auth@^3.0.7":
+"@adonisjs/auth@^3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@adonisjs/auth/-/auth-3.1.0.tgz#039c2bd60d959d3bb5e6e49ec29825ad54b165d8"
   integrity sha512-NLy0Jjmb7/Vmh5GvL7ma8qrSoC8oW32lcz6T5FRDMnXFs59pfBS0Mej0Try6iY/aGGFMKiLVVOoGzhgWgeX8eA==
@@ -168,6 +168,15 @@
     node-csp "^1.0.1"
     node-guard "^1.0.0"
     uuid "^3.3.2"
+
+"@adonisjs/validator@^5.0.6":
+  version "5.0.6"
+  resolved "https://registry.yarnpkg.com/@adonisjs/validator/-/validator-5.0.6.tgz#5354cebcf578b964ca58de24436ae00718bd5fd4"
+  integrity sha512-Koql5nOSfRFhNwkvk38tAHLfpxwuOinZIuLhPP0zAfHCltrXCh02MfydfgA13vDc5LITJgWycXFv+FNb7ljCqg==
+  dependencies:
+    "@adonisjs/generic-exceptions" "^2.0.1"
+    indicative "^5.0.8"
+    lodash "^4.17.11"
 
 "@babel/code-frame@^7.8.3":
   version "7.8.3"
@@ -3343,6 +3352,11 @@ indexes-of@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/indexes-of/-/indexes-of-1.0.1.tgz#f30f716c8e2bd346c7b67d3df3915566a7c05607"
   integrity sha1-8w9xbI4r00bHtn0985FVZqfAVgc=
+
+indicative@^5.0.8:
+  version "5.0.8"
+  resolved "https://registry.yarnpkg.com/indicative/-/indicative-5.0.8.tgz#e635f6c0838ced1a949bc898e5f8316f6291be1e"
+  integrity sha512-Do9YKlrxyvK6RpMs9AdtxmjhweKrA6hJbJejY81iD8aYjjvOU4HYkJcM2IUxC3S7ZRm/L11u67QT4OQ101N5HQ==
 
 infer-owner@^1.0.3:
   version "1.0.4"

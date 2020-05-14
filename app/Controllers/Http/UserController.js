@@ -7,6 +7,7 @@
 /**
  * Resourceful controller for interacting with users
  */
+const User = use("App/Models/User");
 
 class UserController {
   /**
@@ -22,6 +23,10 @@ class UserController {
     return view.render("login");
   }
 
+  async register({ view }) {
+    return view.render("register");
+  }
+
   /**
    * Render a form to be used for creating a new movie.
    * GET users/create
@@ -31,10 +36,29 @@ class UserController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async create({ request, response, view }) {
-    return view.render("register");
+  async create({ request, response, auth }) {
+    const user = await User.create(request.only(["username", "password"]));
+    await auth.login(user);
+    return response.redirect("/");
   }
 
+  async login({ request, auth, response, session }) {
+    const { username, password } = request.all();
+    console.log(username, password);
+    try {
+      const a = await auth.attempt(username, password);
+      return response.redirect("/");
+    } catch (err) {
+      console.log(err);
+      session.flash({ loginError: "Username or password is not correct." });
+      return response.redirect("back");
+    }
+  }
+
+  async logout({ response, auth }) {
+    await auth.logout();
+    return response.redirect("/");
+  }
   /**
    * Create/save a new movie.
    * POST users

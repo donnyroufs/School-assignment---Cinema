@@ -12,17 +12,26 @@ Cinema - Create an Account
             <label for="username" class="input__label">username</label>
             <input type="text" class="input__field" name="username" placeholder="your name">
         </div>
+        @if(hasErrorFor('username'))
+        <span class="flash"> {{ getErrorFor('username') }} </span>
+        @endif
         <div class="input input--form">
             <label for="password" class="input__label">password</label>
             <input type="password" class="input__field" name="password" placeholder="enter password">
         </div>
+        @if(hasErrorFor('password'))
+        <span class="flash"> {{ getErrorFor('password') }} </span>
+        @endif
         <footer class="form__footer">
 
-            <button class="button button--primary button--form">
+            <button type="submit" class="button button--primary button--form">
                 create account
             </button>
-            <a href="/login" class="form__cta">Already have an account? <strong class="form__strong">Log in</strong></a>
-
+            <a href="/login" class="form__cta">Already have an account?
+                <strong class="form__strong">
+                    Log in
+                </strong>
+            </a>
         </footer>
     </form>
 </div>
