@@ -6,9 +6,9 @@ Cinema - Movies for everyone
 @section("content")
 
 <section class="search" id="search">
-    <div class="input">
+    <div class="input" data-view="input">
         <label class="input__label">find a name</label>
-        <input class="input__field" type="text" placeholder="movie name" data-view="movieName" data-state="query:string"
+        <input class="input__field" type="text" placeholder="movie name" data-view="query" data-state="query:string"
             data-action="input:setQuery" />
     </div>
 
@@ -16,11 +16,11 @@ Cinema - Movies for everyone
         <label class="input__label">venue</label>
         <select class="input__field input__field--select" type="text" data-view="venue" data-state="venue:string"
             data-action="change:setOption">
-            <option class="input__option" selected="selected">
+            <option class="input__option" selected="selected" value="0">
                 All
             </option>
             @each(venue in venues)
-            <option class="input__option" value="{{  venue.name }}">{{ venue.name }}</option>
+            <option class="input__option" value="{{ venue.id }}">{{ venue.name }}</option>
             @endeach
         </select>
         <img class="input__icon" src="images/arrow-down.svg">

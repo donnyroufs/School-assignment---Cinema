@@ -16,5 +16,7 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use("Route");
 
-// Route.on('/').render('index')
 Route.get("/", "MovieController.index");
+
+Route.get("/login", "UserController.index");
+Route.get("/register", "UserController.create");

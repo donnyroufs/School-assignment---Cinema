@@ -1,0 +1,23 @@
+@layout("layouts/app");
+
+@section("title")
+Cinema - Create an Account
+@endsection
+@section("content")
+<form class="form" action="{{ route('UserController.create') }}" method="POST">
+    {{ csrfField() }}
+    <h1 class="form__title">Sign up</h1>
+    <div class="input">
+        <label for="username" class="input__label">username</label>
+        <input type="text" class="input__field" name="username" placeholder="your name">
+    </div>
+    <div class="input">
+        <label for="password" class="input__label">password</label>
+        <input type="password" class="input__field" name="password" placeholder="enter password">
+    </div>
+    <button class="form__button button button--primary">
+        create account
+    </button>
+</form>
+
+@endsection

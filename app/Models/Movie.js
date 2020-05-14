@@ -4,8 +4,8 @@
 const Model = use("Model");
 
 class Movie extends Model {
-  Venues() {
-    return this.belongsToMany("App/Models/Venue");
+  venues() {
+    return this.belongsToMany("App/Models/Venue").pivotTable("movie_venue");
   }
 }
 

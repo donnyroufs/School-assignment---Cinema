@@ -1,4 +1,4 @@
-<div class="card mt-4">
+<a href="/movie/{{ movie.id }}" class="card mt-4">
     <img src="{{ movie.thumbnail }}" alt="{{movie.title}}" class="card__image" />
-    <p class="card__title" data-venue="{{ movie.venue }}">{{ movie.title }}</p>
-</div>
+    <p class="card__title" data-venue="{{ toJSON(movie.venues) }}">{{ movie.title }}</p>
+</a>

@@ -19,17 +19,28 @@ Movies.drink(({ view, state }) => {
       set("query", _query.toUpperCase());
     },
     setOption: ({ e, set }) => {
-      set("venue", e.target.value);
+      set("venue", Number(e.target.value));
     },
     findMovie: ({ state }) => {
       showAll(state.movies);
-      if (!state.query) return;
       state.movies.forEach((movie) => {
         const paragraph = movie.querySelector("p");
         const title = paragraph.innerHTML.toUpperCase();
-        // const venue = paragraph.dataset["venue"];
-        if (!title.includes(state.query)) {
-          movie.classList.toggle("hide");
+
+        // const allVenues = Boolean(!state.venue || state.value === 0);
+        const _venue = paragraph.dataset["venue"];
+        const parsedVenues = JSON.parse(_venue);
+
+        const venues = parsedVenues.map((v) => v.id);
+
+        if (!state.query) {
+          return venues.includes(state.venue)
+            ? movie.classList.add("hide")
+            : null;
+        }
+
+        if (!title.includes(state.query) || venues.includes(state.venue)) {
+          movie.classList.add("hide");
         }
       });
     },

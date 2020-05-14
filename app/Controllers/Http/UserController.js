@@ -5,16 +5,13 @@
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
 /**
- * Resourceful controller for interacting with movies
+ * Resourceful controller for interacting with users
  */
 
-const fakeImage = `https://images.unsplash.com/photo-1490730141103-6cac27aaab94?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80`;
-const Movie = use("App/Models/Movie");
-const Venue = use("App/Models/Venue");
-class MovieController {
+class UserController {
   /**
-   * Show a list of all movies.
-   * GET movies
+   * Show a list of all users.
+   * GET users
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -22,29 +19,25 @@ class MovieController {
    * @param {View} ctx.view
    */
   async index({ request, response, view }) {
-    const movies = await Movie.query().with("venues").fetch();
-    const venues = await Venue.all();
-
-    return view.render("index", {
-      movies: movies.toJSON(),
-      venues: venues.toJSON(),
-    });
+    return view.render("login");
   }
 
   /**
    * Render a form to be used for creating a new movie.
-   * GET movies/create
+   * GET users/create
    *
    * @param {object} ctx
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async create({ request, response, view }) {}
+  async create({ request, response, view }) {
+    return view.render("register");
+  }
 
   /**
    * Create/save a new movie.
-   * POST movies
+   * POST users
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -54,7 +47,7 @@ class MovieController {
 
   /**
    * Display a single movie.
-   * GET movies/:id
+   * GET users/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -65,7 +58,7 @@ class MovieController {
 
   /**
    * Render a form to update an existing movie.
-   * GET movies/:id/edit
+   * GET users/:id/edit
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -76,7 +69,7 @@ class MovieController {
 
   /**
    * Update movie details.
-   * PUT or PATCH movies/:id
+   * PUT or PATCH users/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -86,7 +79,7 @@ class MovieController {
 
   /**
    * Delete a movie with id.
-   * DELETE movies/:id
+   * DELETE users/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -95,4 +88,4 @@ class MovieController {
   async destroy({ params, request, response }) {}
 }
 
-module.exports = MovieController;
+module.exports = UserController;

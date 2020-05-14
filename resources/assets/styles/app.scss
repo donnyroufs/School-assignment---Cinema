@@ -15,3 +15,8 @@
 .hide {
   display: none;
 }
+
+.danger {
+  transition: border-color 0.2s ease-in-out;
+  border-color: rgb(241, 80, 80);
+}
