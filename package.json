@@ -11,7 +11,7 @@
     "serve:dev": "adonis serve --dev",
     "webpack:watch": "webpack --watch",
     "prod:migrate": "ENV_SILENT=true node ace migration:run --force",
-    "prod:seed": "ENV_SILENT=true node ace seed"
+    "prod:seed": "ENV_SILENT=true node ace seed --force"
   },
   "keywords": [
     "adonisjs",
