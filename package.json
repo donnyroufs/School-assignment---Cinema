@@ -9,7 +9,8 @@
     "test": "node ace test",
     "dev": "concurrently \"yarn serve:dev\" \"yarn webpack:watch\"",
     "serve:dev": "adonis serve --dev",
-    "webpack:watch": "webpack --watch"
+    "webpack:watch": "webpack --watch",
+    "prod:migrate": "ENV_SILENT=true node ace migration:run --force"
   },
   "keywords": [
     "adonisjs",
