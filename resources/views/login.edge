@@ -4,19 +4,27 @@
 Cinema - Log in
 @endsection
 @section("content")
-<form class="form" action="" method="">
-    <h1 class="form__title">Log in</h1>
-    <div class="input">
-        <label for="username" class="input__label">username</label>
-        <input type="text" class="input__field" name="username" placeholder="your name">
-    </div>
-    <div class="input">
-        <label for="password" class="input__label">password</label>
-        <input type="password" class="input__field" name="password" placeholder="enter password">
-    </div>
-    <button class="form__button button button--primary">
-        login
-    </button>
-</form>
+<div class="layout layout--auth">
+
+    <form class="form" action="" method="">
+        <h1 class="form__title">Log in</h1>
+        <div class="input input--form">
+            <label for="username" class="input__label">username</label>
+            <input type="text" class="input__field" name="username" placeholder="your name">
+        </div>
+        <div class="input input--form">
+            <label for="password" class="input__label">password</label>
+            <input type="password" class="input__field" name="password" placeholder="enter password">
+        </div>
+        <button class="button button--primary button--form">
+            login
+        </button>
+        <a href="/register" class="form__cta">
+            Don't have an account?
+            <strong class="form__strong">Register now</strong>
+        </a>
+    </form>
+
+</div>
 
 @endsection

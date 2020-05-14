@@ -4,20 +4,27 @@
 Cinema - Create an Account
 @endsection
 @section("content")
-<form class="form" action="{{ route('UserController.create') }}" method="POST">
-    {{ csrfField() }}
-    <h1 class="form__title">Sign up</h1>
-    <div class="input">
-        <label for="username" class="input__label">username</label>
-        <input type="text" class="input__field" name="username" placeholder="your name">
-    </div>
-    <div class="input">
-        <label for="password" class="input__label">password</label>
-        <input type="password" class="input__field" name="password" placeholder="enter password">
-    </div>
-    <button class="form__button button button--primary">
-        create account
-    </button>
-</form>
+<div class="layout layout--auth">
+    <form class="form" action="{{ route('UserController.create') }}" method="POST">
+        {{ csrfField() }}
+        <h1 class="form__title">Register</h1>
+        <div class="input input--form">
+            <label for="username" class="input__label">username</label>
+            <input type="text" class="input__field" name="username" placeholder="your name">
+        </div>
+        <div class="input input--form">
+            <label for="password" class="input__label">password</label>
+            <input type="password" class="input__field" name="password" placeholder="enter password">
+        </div>
+        <footer class="form__footer">
+
+            <button class="button button--primary button--form">
+                create account
+            </button>
+            <a href="/login" class="form__cta">Already have an account? <strong class="form__strong">Log in</strong></a>
+
+        </footer>
+    </form>
+</div>
 
 @endsection

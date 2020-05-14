@@ -1,0 +1,33 @@
+.form__cta,
+.form__strong {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+}
+
+.form {
+  width: 100%;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 100px;
+  &__cta {
+    margin-top: 1.5rem;
+  }
+  &__strong {
+    color: #6b84eb;
+  }
+
+  @media screen and (min-width: 968px) {
+    max-width: 500px;
+
+    &__title {
+      margin-bottom: 3rem;
+    }
+    &__footer {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+    }
+  }
+}
