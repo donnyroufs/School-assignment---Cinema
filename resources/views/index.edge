@@ -1,7 +1,39 @@
 @layout("layouts/app");
 
-  {{--  @each(movie in movies)
-    <img src="{{ movie.thumbnail }}" alt="{{movie.title}}" />
-    <h2>{{ movie.title }}</h2>
-    <p>{{ movie.description }}</p>
-  @endeach    --}}
+@section("title")
+Cinema - Movies for everyone
+@endsection
+@section("content")
+
+<section class="search" id="search">
+    <div class="input">
+        <label class="input__label">find a name</label>
+        <input class="input__field" type="text" placeholder="movie name" data-view="movieName" data-state="query:string"
+            data-action="input:setQuery" />
+    </div>
+
+    <div class="input">
+        <label class="input__label">venue</label>
+        <select class="input__field input__field--select" type="text" data-view="venue" data-state="venue:string"
+            data-action="change:setOption">
+            <option class="input__option" selected="selected">
+                All
+            </option>
+            @each(venue in venues)
+            <option class="input__option" value="{{  venue.name }}">{{ venue.name }}</option>
+            @endeach
+        </select>
+        <img class="input__icon" src="images/arrow-down.svg">
+    </div>
+
+    <button class="button button--primary" data-view="btnSearch" data-action="click:findMovie">
+        search
+    </button>
+</section>
+<section class="movies" data-view="movies" data-state="movies:array">
+    @each(movie in movies)
+    @include("partials/card")
+    @endeach
+</section>
+
+@endsection

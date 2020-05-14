@@ -1,0 +1,20 @@
+.button {
+  height: 56px;
+  width: 100%;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+
+  &--primary {
+    background: #212121;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 1rem;
+
+    @media screen and (min-width: 968px) {
+      margin: 0;
+      max-width: 150px;
+    }
+  }
+}

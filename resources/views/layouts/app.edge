@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <title>Hello Adonis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    @section("title")
+
+    @endsection
+  </title>
   {{ style('app')}}
-   {{ script('main') }}
 </head>
+
 <body>
-    <div id="App">
-      @section("content")
+  <div id="App">
+    @include('partials/header')
+    @section("content")
 
-      @endsection
-    </div>
-
+    @endsection
+  </div>
+  {{ script('main') }}
 </body>
+
 </html>

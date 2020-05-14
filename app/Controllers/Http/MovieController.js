@@ -1,7 +1,5 @@
 "use strict";
 
-const Movie = use("App/Models/Movie");
-
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
@@ -9,6 +7,9 @@ const Movie = use("App/Models/Movie");
 /**
  * Resourceful controller for interacting with movies
  */
+
+const Movie = use("App/Models/Movie");
+const Venue = use("App/Models/Venue");
 class MovieController {
   /**
    * Show a list of all movies.
@@ -21,7 +22,12 @@ class MovieController {
    */
   async index({ request, response, view }) {
     const movies = await Movie.all();
-    return view.render("index", { movies: movies.toJSON() });
+    const venues = await Venue.all();
+
+    return view.render("index", {
+      movies: movies.toJSON(),
+      venues: venues.toJSON(),
+    });
   }
 
   /**

@@ -14,6 +14,7 @@ function scriptRules() {
     },
   ];
 }
+
 function sassRules() {
   return [
     {
@@ -29,6 +30,7 @@ function sassRules() {
 module.exports = {
   entry: ["./resources/assets/styles/app.scss", "./resources/assets/js/app.js"],
   output: {
+    filename: "public/[name].js",
     path: __dirname,
   },
   module: {

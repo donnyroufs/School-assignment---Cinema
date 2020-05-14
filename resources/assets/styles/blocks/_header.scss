@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  margin: 1.25rem 0 2rem 0;
+  // animation: fade-in 1s;
+  &__logo {
+    font-size: 1.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  &__link {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    &--bold {
+      font-weight: bold;
+    }
+  }
+
+  @media screen and (min-width: 968px) {
+    margin-top: 3.5rem;
+  }
+}

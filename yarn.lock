@@ -1885,10 +1885,10 @@ chance@^1.0.16:
   resolved "https://registry.yarnpkg.com/chance/-/chance-1.1.5.tgz#94d9415b40e8d31a13144b998e76519193456dce"
   integrity sha512-uBVETzUktMGLALWQ8fCJCOjNF4Gm1lRjjjuC2+z7rCjx78ioONIK7bYhGzBovhQyqOegJEl3nAJxjE7mvY6aIw==
 
-chetsbull@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/chetsbull/-/chetsbull-2.0.0.tgz#38a5576741e86a897adccc4817456455db2e4637"
-  integrity sha512-F933gPv8d4+Kl1IxQORaO7+i0lck6IBBrckXUD20bZ8+Ka3C/949SnUfqgBqJ3X08bayPw55t05CcIJ35ryXjw==
+chetsbull@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/chetsbull/-/chetsbull-2.0.4.tgz#f38d3fbe39fe0a0068dd9c0f78b0e838c9e3f28d"
+  integrity sha512-yeNPsBjWQtdwkG9rH+hNRoCayczLRd4DaGokj7TIT2AVl3ndqobqBmkHyltO3lN5LPhSzv5e9HYHbrCHKWvj/w==
 
 choices-separator@^2.0.0:
   version "2.0.0"

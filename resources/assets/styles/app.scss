@@ -1,3 +1,17 @@
-body {
-  background: blue;
+@import "normalize";
+@import "utils";
+@import "animations";
+@import "base";
+@import "sections/sections-dir";
+@import "blocks/blocks-dir";
+
+#App {
+  margin: 0 2rem;
+  @media screen and (min-width: 968px) {
+    margin: 0;
+  }
+}
+
+.hide {
+  display: none;
 }
