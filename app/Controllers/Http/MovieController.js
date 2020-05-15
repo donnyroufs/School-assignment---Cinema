@@ -61,7 +61,13 @@ class MovieController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async show({ params, request, response, view }) {}
+  async show({ params, request, response, view }) {
+    const movie = await Movie.find(params.id);
+    console.log(movie.toJSON());
+    return view.render("movie", {
+      movie: movie.toJSON(),
+    });
+  }
 
   /**
    * Render a form to update an existing movie.

@@ -34,13 +34,20 @@ Movies.drink(({ view, state }) => {
         const venues = parsedVenues.map((v) => v.id);
 
         if (!state.query) {
-          return venues.includes(state.venue)
+          if (!state.venue || state.venue === 0) return;
+          return !venues.includes(state.venue)
             ? movie.classList.add("hide")
             : null;
         }
+        if (
+          (title.includes(state.query) && !state.venue) ||
+          state.venue === 3
+        ) {
+          return;
+        }
 
-        if (!title.includes(state.query) || venues.includes(state.venue)) {
-          movie.classList.add("hide");
+        if (!title.includes(state.query) || !venues.includes(state.venue)) {
+          return movie.classList.add("hide");
         }
       });
     },

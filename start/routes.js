@@ -19,6 +19,9 @@ const Route = use("Route");
 // @HOME PAGE
 Route.get("/", "MovieController.index");
 
+// @MOVIE PAGE
+Route.get("/movie/:id", "MovieController.show");
+
 // @AUTHENTICATION
 Route.get("/login", "UserController.index");
 Route.post("/login", "UserController.login").validator("LoginUser");

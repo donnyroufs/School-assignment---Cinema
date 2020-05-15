@@ -44,12 +44,10 @@ class UserController {
 
   async login({ request, auth, response, session }) {
     const { username, password } = request.all();
-    console.log(username, password);
     try {
       const a = await auth.attempt(username, password);
       return response.redirect("/");
     } catch (err) {
-      console.log(err);
       session.flash({ loginError: "Username or password is not correct." });
       return response.redirect("back");
     }
