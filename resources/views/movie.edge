@@ -5,5 +5,38 @@ Cinema - {{ movie.title }}
 @endsection
 
 @section("content")
-Hello World
+<section class="information">
+    <header class="information__header">
+        <img src="{{ movie.thumbnail }}" alt="{{ movie.title }}" class="information__image" />
+    </header>
+    <div class="information__body">
+        <aside class="information__left">
+            <div class="information__wrapper">
+                <h5 class="information__subtitle">Release date </h5>
+                <p class="information__date">{{ date }}</p>
+            </div>
+
+            <div class="information__wrapper">
+                <h5 class="information__subtitle">Venue(s)</h5>
+                <p class="information__date">
+                    @each(venue in movie.venues)
+                    {{ venue.name }}
+                    @endeach
+                </p>
+            </div>
+        </aside>
+        <article class="information__article">
+            <h1 class="information__title">
+                {{ movie.title }}
+            </h1>
+            <p class="information__description">
+                {{ movie.description }}
+            </p>
+            <footer class="information__footer">
+                <a href="/" class="button button--primary button--order">order tickets</a>
+            </footer>
+        </article>
+
+    </div>
+</section>
 @endsection

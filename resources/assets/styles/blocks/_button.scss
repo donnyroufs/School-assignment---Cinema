@@ -22,6 +22,18 @@
     }
   }
 
+  &--order {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+
+    @media screen and (min-width: 968px) {
+      max-width: 100%;
+    }
+  }
+
   &--form {
     max-width: 100%;
     @media screen and (min-width: 968px) {
