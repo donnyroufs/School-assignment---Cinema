@@ -1,0 +1,52 @@
+.picker {
+  @media screen and (max-width: 968px) {
+    display: none;
+  }
+  &__header {
+    display: flex;
+    margin-top: 2rem;
+  }
+
+  &__body {
+    display: grid;
+    grid-template-columns: repeat(16, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 4rem;
+    justify-content: space-between;
+  }
+
+  &__seat {
+    height: 48px;
+    width: 48px;
+    background: #bfbfbf;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    transition: 0.1s ease-in-out all;
+
+    &--selected {
+      background: #8b9ce1;
+    }
+
+    &--reserved {
+      background: #686868;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background: #8b9ce1;
+    }
+  }
+
+  &__title {
+    margin-top: 2.4rem;
+    margin-left: auto;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+  }
+}

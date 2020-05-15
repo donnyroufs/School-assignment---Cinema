@@ -12,7 +12,11 @@
     margin: 0;
   }
 }
-
+.mobile {
+  @media screen and (min-width: 968px) {
+    display: none;
+  }
+}
 .hide {
   display: none;
 }

@@ -63,6 +63,15 @@
 
     &__wrapper {
       margin: 2rem 0 0 0;
+      &--order {
+        margin-right: 2.5rem;
+      }
+
+      &--checkout {
+        margin-right: 2rem;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+      }
     }
 
     &__description {

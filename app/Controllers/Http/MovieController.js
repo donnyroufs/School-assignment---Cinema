@@ -8,7 +8,7 @@
  * Resourceful controller for interacting with movies
  */
 
-const fakeImage = `https://images.unsplash.com/photo-1542204165-65bf26472b9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80`;
+const fakeImage = `https://images.unsplash.com/photo-1521967906867-14ec9d64bee8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80`;
 const Movie = use("App/Models/Movie");
 const Venue = use("App/Models/Venue");
 class MovieController {
@@ -25,12 +25,26 @@ class MovieController {
     const movies = await Movie.query().with("venues").fetch();
     const venues = await Venue.all();
 
+    // const movie = await Movie.create({
+    //   title: "Life is strange, sometimes.",
+    //   thumbnail: fakeImage,
+    //   description:
+    //     "Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+    //   price: 14,
+    //   release_date: new Date(),
+    // });
+
+    // const venue_id = 1;
+    // await movie.venues().attach(venue_id);
     return view.render("index", {
       movies: movies.toJSON(),
       venues: venues.toJSON(),
     });
   }
 
+  async order({ request, response, view }) {
+    return view.render("order");
+  }
   /**
    * Render a form to be used for creating a new movie.
    * GET movies/create

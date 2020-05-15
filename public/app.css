@@ -415,8 +415,55 @@ select {
       flex: 5; }
     .information__wrapper {
       margin: 2rem 0 0 0; }
+      .information__wrapper--order {
+        margin-right: 2.5rem; }
+      .information__wrapper--checkout {
+        margin-right: 2rem;
+        margin-top: 0;
+        margin-bottom: 0.5rem; }
     .information__description {
       line-height: 2; } }
+
+@media screen and (max-width: 968px) {
+  .picker {
+    display: none; } }
+
+.picker__header {
+  display: flex;
+  margin-top: 2rem; }
+
+.picker__body {
+  display: grid;
+  grid-template-columns: repeat(16, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 4rem;
+  justify-content: space-between; }
+
+.picker__seat {
+  height: 48px;
+  width: 48px;
+  background: #bfbfbf;
+  border-top-left-radius: 100%;
+  border-top-right-radius: 100%;
+  transition: 0.1s ease-in-out all; }
+  .picker__seat--selected {
+    background: #8b9ce1; }
+  .picker__seat--reserved {
+    background: #686868; }
+  .picker__seat:hover {
+    cursor: pointer;
+    background: #8b9ce1; }
+
+.picker__title {
+  margin-top: 2.4rem;
+  margin-left: auto; }
+
+.picker__footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 6rem;
+  margin-bottom: 6rem; }
 
 .header {
   display: flex;
@@ -437,7 +484,8 @@ select {
       color: #6b84eb; }
   @media screen and (min-width: 968px) {
     .header {
-      margin-top: 3.5rem; } }
+      margin-top: 3rem;
+      margin-bottom: 3.5rem; } }
 
 .input,
 .input__label,
@@ -474,6 +522,11 @@ select {
     .input__field--select {
       margin-left: 0;
       padding-left: 16px; }
+  .input--small {
+    max-width: 200px; }
+    @media screen and (min-width: 968px) {
+      .input--small {
+        margin-right: 0 !important; } }
   .input__icon {
     height: 32px;
     width: 32px;
@@ -516,6 +569,8 @@ select {
     @media screen and (min-width: 968px) {
       .button--order {
         max-width: 100%; } }
+  .button--accent {
+    background: #8b9ce1; }
   .button--form {
     max-width: 100%; }
     @media screen and (min-width: 968px) {
@@ -569,11 +624,18 @@ select {
         flex-flow: column nowrap;
         justify-content: center; } }
 
+.order__header {
+  width: 100%; }
+
 #App {
   margin: 0 2rem; }
   @media screen and (min-width: 968px) {
     #App {
       margin: 0; } }
+
+@media screen and (min-width: 968px) {
+  .mobile {
+    display: none; } }
 
 .hide {
   display: none; }

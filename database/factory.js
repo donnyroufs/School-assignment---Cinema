@@ -23,9 +23,9 @@ const Factory = use("Factory");
 Factory.blueprint("App/Models/Movie", (faker) => {
   return {
     title: faker.sentence({ words: 4 }),
-    thumbnail: faker.avatar({ fileExtension: "jpg" }),
-    description: faker.paragraph({ sentences: 2 }),
-    price: faker.integer({ min: 0, max: 15 }),
+    thumbnail: faker.avatar(),
+    description: faker.paragraph({ sentences: 4 }),
+    price: faker.integer({ min: 5, max: 15 }),
     release_date: faker.date(),
   };
 });

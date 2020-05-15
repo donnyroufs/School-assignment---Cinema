@@ -16,8 +16,7 @@ const Database = use("Database");
 
 class MovieSeeder {
   async run() {
-    const movies = await Factory.model("App/Models/Movie").createMany(10);
-    console.log(movies);
+    const movies = await Factory.model("App/Models/Movie").createMany(6);
   }
 }
 

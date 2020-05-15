@@ -34,6 +34,10 @@
     }
   }
 
+  &--accent {
+    background: #8b9ce1;
+  }
+
   &--form {
     max-width: 100%;
     @media screen and (min-width: 968px) {

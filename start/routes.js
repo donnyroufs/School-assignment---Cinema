@@ -22,6 +22,9 @@ Route.get("/", "MovieController.index");
 // @MOVIE PAGE
 Route.get("/movie/:id", "MovieController.show");
 
+// @ORDER PAGE
+Route.get("/movie/:id/order", "MovieController.order");
+
 // @AUTHENTICATION
 Route.get("/login", "UserController.index");
 Route.post("/login", "UserController.login").validator("LoginUser");

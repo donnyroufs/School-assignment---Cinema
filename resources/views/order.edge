@@ -1,0 +1,178 @@
+@layout("layouts/app")
+
+@section("title")
+Cinema - Order Ticket(s)
+@endsection
+
+@section("content")
+<div class="layout layout--order">
+    <header class="order__header">
+        <div class="search">
+            <div class="input">
+                <label class="input__label">venue</label>
+                <select class="input__field input__field--select" type="text">
+                    <option class="input__option" selected="selected" value="0">
+                        Select a venue
+                    </option>
+                </select>
+                <img class="input__icon" src="/images/arrow-down.svg">
+            </div>
+
+            <div class="input">
+                <label class="input__label">date</label>
+                <select class="input__field input__field--select" type="text">
+                    <option class="input__option" selected="selected" value="0">
+                        Select a date
+                    </option>
+                </select>
+                <img class="input__icon" src="/images/arrow-down.svg">
+            </div>
+
+            <div class="input input--small">
+                <label class="input__label">hall</label>
+                <select class="input__field input__field--select" type="text">
+                    <option class="input__option" selected="selected" value="0">
+                        Select a hall
+                    </option>
+                </select>
+                <img class="input__icon" src="/images/arrow-down.svg">
+            </div>
+        </div>
+    </header>
+
+    <section class="picker">
+        <header class="picker__header">
+            <div class="information__wrapper information__wrapper--order">
+                <h5 class="information__subtitle">Available seats</h5>
+                <p class="information__date">
+                    99
+                </p>
+            </div>
+
+            <div class="information__wrapper">
+                <h5 class="information__subtitle">Selected seats</h5>
+                <p class="information__date">
+                    4
+                </p>
+            </div>
+
+            <h3 class="picker__title">MOVIE TITLE</h3>
+        </header>
+
+        <main class="picker__body">
+
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat picker__seat--selected"></div>
+            <div class="picker__seat  picker__seat--selected"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat picker__seat--reserved"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+            <div class="picker__seat"></div>
+        </main>
+
+        <footer class="picker__footer">
+            <div class="information__wrapper information__wrapper--checkout">
+                <h5 class="information__subtitle">Total</h5>
+                <p class="information__date">
+                    € 25,40
+                </p>
+            </div>
+            <button class="button button--primary button--accent">Order tickets</button>
+        </footer>
+    </section>
+</div>
+
+<section class="mobile mt-4">
+    <h2>This page is not supported on mobile.</h2>
+    <a href="/" class="header__link header__link--bold">go back</a>
+</section>
+@endsection

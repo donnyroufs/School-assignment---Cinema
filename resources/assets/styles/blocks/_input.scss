@@ -40,6 +40,13 @@
       padding-left: 16px;
     }
   }
+  &--small {
+    max-width: 200px;
+    @media screen and (min-width: 968px) {
+      // Specificity? What is that. ;')
+      margin-right: 0 !important;
+    }
+  }
 
   &__icon {
     height: 32px;
