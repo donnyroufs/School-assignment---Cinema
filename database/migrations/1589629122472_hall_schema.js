@@ -5,15 +5,16 @@ const Schema = use("Schema");
 
 class HallSchema extends Schema {
   up() {
-    this.create("halls", (table) => {
-      table.increments();
-      table.string("name").notNullable().unique();
-      table.timestamps();
+    this.alter("halls", (table) => {
+      // alter table
+      table.unique(["name", "venue_id"]);
     });
   }
 
   down() {
-    this.drop("halls");
+    this.table("halls", (table) => {
+      // reverse alternations
+    });
   }
 }
 

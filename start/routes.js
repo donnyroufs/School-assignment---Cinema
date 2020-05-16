@@ -20,10 +20,11 @@ const Route = use("Route");
 Route.get("/", "MovieController.index");
 
 // @MOVIE PAGE
-Route.get("/movie/:id", "MovieController.show");
+Route.get("/movie", "MovieController.show");
+Route.post("/movie", "MovieController.store");
 
 // @ORDER PAGE
-Route.get("/movie/:id/order", "MovieController.order");
+Route.get("/movie/order", "MovieController.order");
 
 // @AUTHENTICATION
 Route.get("/login", "UserController.index");
@@ -33,3 +34,6 @@ Route.get("/register", "UserController.register");
 Route.post("/register", "UserController.create").validator("CreateUser");
 
 Route.get("/logout", "UserController.logout");
+
+// Create a new movie
+Route.get("/admin", "MovieController.create");

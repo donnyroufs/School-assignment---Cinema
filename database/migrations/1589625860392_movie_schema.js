@@ -7,12 +7,12 @@ class MovieSchema extends Schema {
   up() {
     this.create("movies", (table) => {
       table.increments();
-      table.string("title").notNullable().unique();
+      table.string("title").notNullable();
       table.string("thumbnail").notNullable();
-      table.string("description");
+      table.text("description").notNullable();
       table.integer("price").notNullable();
       table.date("release_date");
-      table.timestamps();
+      table.integer("duration");
     });
   }
 

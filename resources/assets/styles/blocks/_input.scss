@@ -63,5 +63,23 @@
     &--form {
       margin: 1rem 0 0 0;
     }
+
+    &__wrapper {
+      display: flex;
+    }
+
+    &--admin {
+      margin-bottom: 1rem;
+      margin-right: 0;
+    }
+
+    &__textarea {
+      box-sizing: border-box;
+      resize: none;
+      margin: 0;
+      height: 79%;
+      border: 1px solid $border-colour;
+      padding: 0.5rem 1rem;
+    }
   }
 }

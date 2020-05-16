@@ -7,9 +7,7 @@ class SeatSchema extends Schema {
   up() {
     this.create("seats", (table) => {
       table.increments();
-      table.integer("number").notNullable();
-      table.integer("row").notNullable();
-      table.timestamps();
+      table.integer("number");
     });
   }
 

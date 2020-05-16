@@ -3,19 +3,19 @@
 /** @type {import('@adonisjs/lucid/src/Schema')} */
 const Schema = use("Schema");
 
-class MovieSchema extends Schema {
+class SeatSchema extends Schema {
   up() {
-    this.alter("movies", (table) => {
-      table.text("description").alter();
+    this.table("seats", (table) => {
+      this.drop("seats");
       // alter table
     });
   }
 
   down() {
-    this.alter("movies", (table) => {
+    this.table("seats", (table) => {
       // reverse alternations
     });
   }
 }
 
-module.exports = MovieSchema;
+module.exports = SeatSchema;

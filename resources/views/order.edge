@@ -14,6 +14,9 @@ Cinema - Order Ticket(s)
                     <option class="input__option" selected="selected" value="0">
                         Select a venue
                     </option>
+                    @each(venue in movie.venues)
+                    <option class="input__option" value="{{ venue.id }}">{{ venue.name }}</option>
+                    @endeach
                 </select>
                 <img class="input__icon" src="/images/arrow-down.svg">
             </div>
@@ -40,7 +43,7 @@ Cinema - Order Ticket(s)
         </div>
     </header>
 
-    <section class="picker">
+    <section class="picker" id="picker">
         <header class="picker__header">
             <div class="information__wrapper information__wrapper--order">
                 <h5 class="information__subtitle">Available seats</h5>
@@ -56,7 +59,7 @@ Cinema - Order Ticket(s)
                 </p>
             </div>
 
-            <h3 class="picker__title">MOVIE TITLE</h3>
+            <h3 class="picker__title">{{ movie.title }}</h3>
         </header>
 
         <main class="picker__body">
@@ -163,7 +166,7 @@ Cinema - Order Ticket(s)
             <div class="information__wrapper information__wrapper--checkout">
                 <h5 class="information__subtitle">Total</h5>
                 <p class="information__date">
-                    € 25,40
+                    € {{ movie.price }}
                 </p>
             </div>
             <button class="button button--primary button--accent">Order tickets</button>
@@ -175,4 +178,10 @@ Cinema - Order Ticket(s)
     <h2>This page is not supported on mobile.</h2>
     <a href="/" class="header__link header__link--bold">go back</a>
 </section>
+@endsection
+
+@section("scripts")
+<script>
+    const data = {{{ toJSON(data) }}}
+</script>
 @endsection

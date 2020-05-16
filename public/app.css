@@ -384,9 +384,10 @@ select {
   .information__wrapper {
     margin: 2rem 1rem 2rem 1rem; }
   .information__image {
-    height: 300px;
+    height: 500px;
     width: 100%;
-    object-fit: cover; }
+    object-fit: cover;
+    object-position: top; }
   .information__subtitle {
     margin: 0.5rem 0 0 0; }
   .information__date {
@@ -456,7 +457,8 @@ select {
 
 .picker__title {
   margin-top: 2.4rem;
-  margin-left: auto; }
+  margin-left: auto;
+  text-transform: uppercase; }
 
 .picker__footer {
   display: flex;
@@ -464,6 +466,22 @@ select {
   align-items: center;
   margin-top: 6rem;
   margin-bottom: 6rem; }
+
+.admin__title {
+  font-size: 1.45rem;
+  margin-top: 8rem;
+  margin-bottom: 4rem;
+  text-align: center;
+  text-transform: uppercase; }
+
+.admin__form {
+  display: flex; }
+
+.admin__left, .admin__right {
+  flex: 1; }
+
+.admin__left {
+  margin-right: 2rem; }
 
 .header {
   display: flex;
@@ -539,7 +557,19 @@ select {
       flex: 1;
       margin: 0 1rem 0 0; }
       .input--form {
-        margin: 1rem 0 0 0; } }
+        margin: 1rem 0 0 0; }
+      .input__wrapper {
+        display: flex; }
+      .input--admin {
+        margin-bottom: 1rem;
+        margin-right: 0; }
+      .input__textarea {
+        box-sizing: border-box;
+        resize: none;
+        margin: 0;
+        height: 79%;
+        border: 1px solid #d2d2d2;
+        padding: 0.5rem 1rem; } }
 
 .button {
   height: 56px;
@@ -576,6 +606,8 @@ select {
     @media screen and (min-width: 968px) {
       .button--form {
         margin-top: 2rem; } }
+  .button--admin {
+    max-width: 100%; }
 
 .card {
   width: 100%;
@@ -622,7 +654,14 @@ select {
       .form__footer {
         display: flex;
         flex-flow: column nowrap;
-        justify-content: center; } }
+        justify-content: center; }
+      .form__cta {
+        font-size: 0.7rem;
+        display: flex;
+        justify-content: flex-end; }
+      .form__strong {
+        font-size: 0.7rem;
+        margin-left: 0.25rem; } }
 
 .order__header {
   width: 100%; }

@@ -29,5 +29,14 @@
       flex-flow: column nowrap;
       justify-content: center;
     }
+    &__cta {
+      font-size: 0.7rem;
+      display: flex;
+      justify-content: flex-end;
+    }
+    &__strong {
+      font-size: 0.7rem;
+      margin-left: 0.25rem;
+    }
   }
 }

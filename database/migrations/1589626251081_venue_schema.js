@@ -7,8 +7,7 @@ class VenueSchema extends Schema {
   up() {
     this.create("venues", (table) => {
       table.increments();
-      table.string("name");
-      table.timestamps();
+      table.string("name").notNullable().unique();
     });
   }
 

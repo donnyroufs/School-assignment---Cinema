@@ -33,7 +33,7 @@ Cinema - {{ movie.title }}
                 {{ movie.description }}
             </p>
             <footer class="information__footer">
-                <a href="/movie/{{ movie.id }}/order" class="button button--primary button--order">Grab your
+                <a href="/movie/order?id={{ movie.id }}" class="button button--primary button--order">Grab your
                     tickets!</a>
             </footer>
         </article>

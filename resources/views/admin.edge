@@ -1,0 +1,43 @@
+@layout("layouts/app");
+
+@section("title")
+Cinema - Add New Movie
+@endsection
+
+@section("content")
+<section class="admin">
+    <h1 class="admin__title">Add new movie</h1>
+    <form class="admin__form" action="{{ route('MovieController.store') }}" method="POST">
+        {{ csrfField() }}
+        <div class="admin__left">
+            <div class="input input--admin">
+                <label class="input__label" for="title">title</label>
+                <input class="input__field" type="text" name="title" placeholder="enter title" />
+            </div>
+            <textarea class="input__field input__textarea" type="text" name="description"
+                placeholder="enter description"></textarea>
+        </div>
+        <div class="admin__right">
+            <div class="input input--admin">
+                <label class="input__label" for="thumbnail">Thumbnail</label>
+                <input class="input__field" type="text" name="thumbnail" placeholder="enter thumbnail" />
+            </div>
+            <div class="input input--admin">
+                <label class="input__label" for="price">price</label>
+                <input class="input__field" type="number" min="0" max="100" name="price" placeholder="enter price" />
+            </div>
+            <div class="input input--admin">
+                <label class="input__label" for="release_date">release date</label>
+                <input class="input__field" type="date" name="release_date" placeholder="enter release date" />
+            </div>
+            <div class="input input--admin">
+                <label class="input__label" for="duration">duration</label>
+                <input class="input__field" type="number" name="duration" min="0" max="180"
+                    placeholder="enter duration" />
+            </div>
+
+            <button type="submit" class="button button--primary button--admin">create movie</button>
+        </div>
+    </form>
+</section>
+@endsection

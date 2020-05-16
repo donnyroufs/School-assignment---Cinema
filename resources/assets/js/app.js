@@ -1,1 +1,2 @@
-import Movies from "./Movies";
+// import Movies from "./Movies";
+import Picker from "./Picker";
