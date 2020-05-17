@@ -395,7 +395,7 @@ select {
     font-weight: bold;
     font-size: 0.9rem;
     margin: 0;
-    padding: 0.1rem 0 0 0; }
+    padding: 0.25rem 0 0 0; }
   .information__title {
     font-size: 1.5rem;
     text-align: center;
@@ -431,18 +431,20 @@ select {
 
 .picker__header {
   display: flex;
-  margin-top: 2rem; }
+  margin-top: 4rem; }
 
 .picker__body {
   display: grid;
   grid-template-columns: repeat(16, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 0.9rem;
   margin-top: 4rem;
   justify-content: space-between; }
+  .picker__body--disabled {
+    opacity: 0.3; }
 
 .picker__seat {
-  height: 48px;
-  width: 48px;
+  height: 38px;
+  width: 38px;
   background: #bfbfbf;
   border-top-left-radius: 100%;
   border-top-right-radius: 100%;
@@ -466,6 +468,13 @@ select {
   align-items: center;
   margin-top: 6rem;
   margin-bottom: 6rem; }
+
+.picker__status {
+  margin-right: auto;
+  color: #eb4444;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  font-weight: bold; }
 
 .admin__title {
   font-size: 1.45rem;
@@ -608,6 +617,9 @@ select {
         margin-top: 2rem; } }
   .button--admin {
     max-width: 100%; }
+  .button--disabled {
+    background: #2f3446;
+    cursor: not-allowed; }
 
 .card {
   width: 100%;

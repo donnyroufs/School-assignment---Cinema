@@ -13,7 +13,9 @@ class Movie extends Model {
   }
 
   venues() {
-    return this.belongsToMany("App/Models/Venue").pivotTable("schedule_movies");
+    return this.belongsToMany("App/Models/Venue")
+      .pivotTable("schedule_movies")
+      .withPivot(["starts_at"]);
   }
 
   halls() {

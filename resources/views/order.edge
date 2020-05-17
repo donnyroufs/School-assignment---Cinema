@@ -10,11 +10,12 @@ Cinema - Order Ticket(s)
         <div class="search">
             <div class="input">
                 <label class="input__label">venue</label>
-                <select class="input__field input__field--select" type="text">
+                <select class="input__field input__field--select" type="text" data-view="inputVenue"
+                    data-action="change:renderDates">
                     <option class="input__option" selected="selected" value="0">
                         Select a venue
                     </option>
-                    @each(venue in movie.venues)
+                    @each(venue in venues)
                     <option class="input__option" value="{{ venue.id }}">{{ venue.name }}</option>
                     @endeach
                 </select>
@@ -23,7 +24,8 @@ Cinema - Order Ticket(s)
 
             <div class="input">
                 <label class="input__label">date</label>
-                <select class="input__field input__field--select" type="text">
+                <select class="input__field input__field--select" type="text" data-view="dates" data-state="dates:array"
+                    data-action="change:renderHalls">
                     <option class="input__option" selected="selected" value="0">
                         Select a date
                     </option>
@@ -33,7 +35,8 @@ Cinema - Order Ticket(s)
 
             <div class="input input--small">
                 <label class="input__label">hall</label>
-                <select class="input__field input__field--select" type="text">
+                <select class="input__field input__field--select" type="text" data-view="halls" data-state="halls:array"
+                    data-action="change:getAvailableSeats">
                     <option class="input__option" selected="selected" value="0">
                         Select a hall
                     </option>
@@ -47,129 +50,134 @@ Cinema - Order Ticket(s)
         <header class="picker__header">
             <div class="information__wrapper information__wrapper--order">
                 <h5 class="information__subtitle">Available seats</h5>
-                <p class="information__date">
-                    99
+                <p class="information__date" data-view="availableSeats" data-state="availableSeats:number">
+                    0
                 </p>
             </div>
 
             <div class="information__wrapper">
                 <h5 class="information__subtitle">Selected seats</h5>
-                <p class="information__date">
-                    4
+                <p class="information__date" data-view="selectedSeats" data-state="selectedSeats:number">
+                    0
                 </p>
             </div>
-
             <h3 class="picker__title">{{ movie.title }}</h3>
         </header>
 
-        <main class="picker__body">
+        <main class="picker__body picker__body--disabled" data-view="seats" data-state="seats:array"
+            data-action="click:selectSeat">
+            <div class="picker__seat" data-seat="1"></div>
+            <div class="picker__seat" data-seat="2"></div>
+            <div class="picker__seat" data-seat="3"></div>
+            <div class="picker__seat" data-seat="4"></div>
+            <div class="picker__seat" data-seat="5"></div>
+            <div class="picker__seat" data-seat="6"></div>
+            <div class="picker__seat" data-seat="7"></div>
+            <div class="picker__seat" data-seat="8"></div>
+            <div class="picker__seat" data-seat="9"></div>
+            <div class="picker__seat" data-seat="10"></div>
+            <div class="picker__seat" data-seat="11"></div>
+            <div class="picker__seat" data-seat="12"></div>
+            <div class="picker__seat" data-seat="13"></div>
+            <div class="picker__seat" data-seat="14"></div>
+            <div class="picker__seat" data-seat="15"></div>
+            <div class="picker__seat" data-seat="16"></div>
+            <div class="picker__seat" data-seat="17"></div>
+            <div class="picker__seat" data-seat="18"></div>
+            <div class="picker__seat" data-seat="19"></div>
+            <div class="picker__seat" data-seat="20"></div>
+            <div class="picker__seat" data-seat="21"></div>
+            <div class="picker__seat" data-seat="22"></div>
+            <div class="picker__seat" data-seat="23"></div>
+            <div class="picker__seat" data-seat="24"></div>
+            <div class="picker__seat" data-seat="25"></div>
+            <div class="picker__seat" data-seat="26"></div>
+            <div class="picker__seat" data-seat="27"></div>
+            <div class="picker__seat" data-seat="28"></div>
+            <div class="picker__seat" data-seat="29"></div>
+            <div class="picker__seat" data-seat="30"></div>
+            <div class="picker__seat" data-seat="31"></div>
+            <div class="picker__seat" data-seat="32"></div>
+            <div class="picker__seat" data-seat="33"></div>
+            <div class="picker__seat" data-seat="34"></div>
+            <div class="picker__seat" data-seat="35"></div>
+            <div class="picker__seat" data-seat="36"></div>
+            <div class="picker__seat" data-seat="37"></div>
+            <div class="picker__seat" data-seat="38"></div>
+            <div class="picker__seat" data-seat="39"></div>
+            <div class="picker__seat" data-seat="40"></div>
+            <div class="picker__seat" data-seat="41"></div>
+            <div class="picker__seat" data-seat="42"></div>
+            <div class="picker__seat" data-seat="43"></div>
+            <div class="picker__seat" data-seat="44"></div>
+            <div class="picker__seat" data-seat="45"></div>
+            <div class="picker__seat" data-seat="46"></div>
+            <div class="picker__seat" data-seat="47"></div>
+            <div class="picker__seat" data-seat="48"></div>
+            <div class="picker__seat" data-seat="49"></div>
+            <div class="picker__seat" data-seat="50"></div>
+            <div class="picker__seat" data-seat="51"></div>
+            <div class="picker__seat" data-seat="52"></div>
+            <div class="picker__seat" data-seat="53"></div>
+            <div class="picker__seat" data-seat="54"></div>
+            <div class="picker__seat" data-seat="55"></div>
+            <div class="picker__seat" data-seat="56"></div>
+            <div class="picker__seat" data-seat="57"></div>
+            <div class="picker__seat" data-seat="58"></div>
+            <div class="picker__seat" data-seat="59"></div>
+            <div class="picker__seat" data-seat="60"></div>
+            <div class="picker__seat" data-seat="61"></div>
+            <div class="picker__seat" data-seat="62"></div>
+            <div class="picker__seat" data-seat="63"></div>
+            <div class="picker__seat" data-seat="64"></div>
+            <div class="picker__seat" data-seat="65"></div>
+            <div class="picker__seat" data-seat="66"></div>
+            <div class="picker__seat" data-seat="67"></div>
+            <div class="picker__seat" data-seat="68"></div>
+            <div class="picker__seat" data-seat="69"></div>
+            <div class="picker__seat" data-seat="70"></div>
+            <div class="picker__seat" data-seat="71"></div>
+            <div class="picker__seat" data-seat="72"></div>
+            <div class="picker__seat" data-seat="73"></div>
+            <div class="picker__seat" data-seat="74"></div>
+            <div class="picker__seat" data-seat="75"></div>
+            <div class="picker__seat" data-seat="76"></div>
+            <div class="picker__seat" data-seat="77"></div>
+            <div class="picker__seat" data-seat="78"></div>
+            <div class="picker__seat" data-seat="79"></div>
+            <div class="picker__seat" data-seat="80"></div>
+            <div class="picker__seat" data-seat="81"></div>
+            <div class="picker__seat" data-seat="82"></div>
+            <div class="picker__seat" data-seat="83"></div>
+            <div class="picker__seat" data-seat="84"></div>
+            <div class="picker__seat" data-seat="85"></div>
+            <div class="picker__seat" data-seat="86"></div>
+            <div class="picker__seat" data-seat="87"></div>
+            <div class="picker__seat" data-seat="88"></div>
+            <div class="picker__seat" data-seat="89"></div>
+            <div class="picker__seat" data-seat="90"></div>
+            <div class="picker__seat" data-seat="91"></div>
+            <div class="picker__seat" data-seat="92"></div>
+            <div class="picker__seat" data-seat="93"></div>
+            <div class="picker__seat" data-seat="94"></div>
+            <div class="picker__seat" data-seat="95"></div>
+            <div class="picker__seat" data-seat="96"></div>
 
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat picker__seat--selected"></div>
-            <div class="picker__seat  picker__seat--selected"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat picker__seat--reserved"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
-            <div class="picker__seat"></div>
         </main>
 
         <footer class="picker__footer">
+            <div class="picker__status" data-view="status">
+                You need to select a hall in order to use this.
+            </div>
             <div class="information__wrapper information__wrapper--checkout">
-                <h5 class="information__subtitle">Total</h5>
-                <p class="information__date">
-                    € {{ movie.price }}
+                <h5 class="information__subtitle">Total Price</h5>
+                <p class="information__date" data-view="totalPrice" data-state="totalPrice:number">
+                    € 0,00
                 </p>
             </div>
-            <button class="button button--primary button--accent">Order tickets</button>
+            <button class="button button--primary button--accent button--disabled" data-view="orderBtn"
+                data-action="click:buyTickets">Order
+                tickets</button>
         </footer>
     </section>
 </div>
@@ -178,10 +186,19 @@ Cinema - Order Ticket(s)
     <h2>This page is not supported on mobile.</h2>
     <a href="/" class="header__link header__link--bold">go back</a>
 </section>
+
+<form method="POST" action="{{ route('ReservationController.orderTickets') }}" data-view="form" class="hide">
+    {{ csrfField() }}
+    <input type="text" name="schedule_id" data-view="formSchedule" class="hide">
+    <input type="text" name="seats" data-view="formSeats" class="hide">
+    <input type="text" name="total_price" data-view="formPrice" class="hide">
+</form>
 @endsection
 
 @section("scripts")
 <script>
-    const data = {{{ toJSON(data) }}}
+    const movie = {{{ toJSON(movie) }}}
+    const venues = {{{ toJSON(venues) }}}
+    const schedule = {{{ toJSON(schedule) }}}
 </script>
 @endsection

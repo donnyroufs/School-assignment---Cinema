@@ -48,4 +48,9 @@
   &--admin {
     max-width: 100%;
   }
+
+  &--disabled {
+    background: darken(#444b64, 10%);
+    cursor: not-allowed;
+  }
 }

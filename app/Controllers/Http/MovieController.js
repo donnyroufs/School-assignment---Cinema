@@ -11,7 +11,7 @@
 const fakeImage = `https://images.unsplash.com/photo-1521967906867-14ec9d64bee8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80`;
 const Movie = use("App/Models/Movie");
 const Venue = use("App/Models/Venue");
-const Schedule = use("App/Models/ScheduleMovie");
+const Database = use("Database");
 
 class MovieController {
   /**
@@ -36,29 +36,28 @@ class MovieController {
 
   async order({ request, response, view }) {
     const { id } = request.get();
-    // const movie = await Movie.query()
-    //   .with("venues")
-    //   .with("halls")
-    //   .where({ id })
-    //   .first();
 
-    // const movie = await Movie.query().with("venues").where({ id }).first();
-    // await movie.load("halls");
+    const venues = await Database.raw(
+      "select distinct venues.id, venues.name from schedule_movies inner join venues on schedule_movies.venue_id = venues.id where schedule_movies.movie_id = ?",
+      [id]
+    );
 
-    // const movie = await Schedule.query().where({ movie_id: id }).first();
+    const schedule = await Database.raw(
+      ` SELECT sm.starts_at, h.name as hall_name, h.seat_count, v.name as venue_name, sm.id as schedule_id, v.id as venue_id
+        FROM schedule_movies sm
+        JOIN halls h ON (sm.hall_id = h.id)
+        JOIN venues v ON (h.venue_id = v.id)
+        WHERE sm.movie_id = ?
+      `,
+      [id]
+    );
 
-    // await movie.load("movies");
-
-    const movie = await Schedule.query()
-      .with("movies.halls")
-      .with("movies.venues")
-      .where({ movie_id: id })
-      .andWhere("starts_at", ">=", new Date())
-      .fetch();
+    const movie = await Movie.find(id);
 
     return view.render("order", {
-      data: movie.toJSON(),
-      movie: movie.toJSON()[0].movies,
+      movie: movie.toJSON(),
+      venues: venues.rows,
+      schedule: schedule.rows,
     });
   }
   /**

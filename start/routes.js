@@ -25,6 +25,9 @@ Route.post("/movie", "MovieController.store");
 
 // @ORDER PAGE
 Route.get("/movie/order", "MovieController.order");
+Route.get("/api/venues/:id", "MovieController.getVenues");
+Route.get("/api/reservations/:id", "ReservationController.getById");
+Route.post("/api/order", "ReservationController.orderTickets");
 
 // @AUTHENTICATION
 Route.get("/login", "UserController.index");
