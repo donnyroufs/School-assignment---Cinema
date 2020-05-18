@@ -5,7 +5,7 @@ import Templates from "./Picker.templates";
 import _ from "lodash";
 import { BASE_URL } from "./app";
 
-const ENDPOINT = `http://localhost:3000/api/reservations/`;
+const ENDPOINT = `https://cinema-school.herokuapp.com/api/reservations/`;
 
 const Picker = new Controller({
   scope: "#App",
