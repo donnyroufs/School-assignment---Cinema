@@ -13,6 +13,17 @@
 </head>
 
 <body>
+  @if(flashMessage('loggedIn'))
+  <div class="toast toast--success">
+    {{ flashMessage("loggedIn") }}
+  </div>
+  @endif
+
+  @if(flashMessage('loggedOut'))
+  <div class="toast toast--info">
+    {{ flashMessage("loggedOut") }}
+  </div>
+  @endif
   <div id="App">
     @include('partials/header')
     @section("content")

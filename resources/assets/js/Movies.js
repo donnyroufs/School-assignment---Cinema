@@ -18,7 +18,6 @@ if (!Movies.status) {
 
   Movies.drink(({ view, state }) => {
     state.movies = Array.from(view.movies.children);
-
     return {
       setQuery: ({ e, set }) => {
         const _query = e.target.value;
@@ -27,15 +26,13 @@ if (!Movies.status) {
       setOption: ({ e, set }) => {
         set("venue", Number(e.target.value));
       },
-      findMovie: ({ state }) => {
-        // setLoader(view.loader, true);
+      findMovie: ({ e, state }) => {
         showAll(state.movies);
         state.movies.forEach((movie) => {
           if (movie.classList.contains("loader")) return;
           const paragraph = movie.querySelector("p");
           const title = paragraph.innerHTML.toUpperCase();
 
-          // const allVenues = Boolean(!state.venue || state.value === 0);
           const _venue = paragraph.dataset["venue"];
           const parsedVenues = JSON.parse(_venue);
 

@@ -349,6 +349,14 @@ template {
     opacity: 1;
     height: 100%; } }
 
+@keyframes toast {
+  0% {
+    opacity: 0;
+    transform: translateY(50px); }
+  10% {
+    opacity: 1;
+    transform: translateY(0); } }
+
 body {
   font-family: "open sans";
   color: #484848; }
@@ -598,10 +606,15 @@ select {
     font-size: 14px;
     font-weight: bold;
     color: #adadad;
-    margin-left: 16px;
-    margin-top: 5px; }
+    padding-left: 16px;
+    box-sizing: border-box;
+    padding-top: 16px; }
     .input__field::placeholder {
       color: #adadad; }
+    .input__field:autofill {
+      background-color: transparent; }
+      .input__field:autofill:hover, .input__field:autofill:active, .input__field:autofill:focus {
+        background: white; }
     .input__field--select {
       margin-left: 0;
       padding-left: 16px; }
@@ -635,6 +648,13 @@ select {
         height: 79%;
         border: 1px solid #d2d2d2;
         padding: 0.5rem 1rem; } }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #adadad !important; }
 
 .button {
   height: 56px;
@@ -734,6 +754,30 @@ select {
 
 .order__header {
   width: 100%; }
+
+.toast {
+  opacity: 0;
+  position: fixed;
+  bottom: 32px;
+  right: 64px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  height: 150px;
+  width: 300px;
+  padding: 2rem;
+  border-radius: 12px;
+  animation: toast 10s ease-in-out backwards; }
+  .toast--success {
+    background: #bcf66291; }
+  .toast--info {
+    background: #6b84eb;
+    color: white; }
 
 #App {
   margin: 0 2rem;

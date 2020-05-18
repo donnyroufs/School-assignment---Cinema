@@ -46,6 +46,7 @@ class UserController {
     const { username, password } = request.all();
     try {
       const a = await auth.attempt(username, password);
+      session.flash({ loggedIn: `You have logged in as ${username}` });
       return response.redirect("/");
     } catch (err) {
       session.flash({ loginError: "Username or password is not correct." });
@@ -53,8 +54,9 @@ class UserController {
     }
   }
 
-  async logout({ response, auth }) {
+  async logout({ response, auth, session }) {
     await auth.logout();
+    session.flash({ loggedOut: `You have been logged out` });
     return response.redirect("/");
   }
   /**

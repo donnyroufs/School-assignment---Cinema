@@ -24,23 +24,30 @@ Route.get("/movie", "MovieController.show");
 Route.post("/movie", "MovieController.store");
 
 // @ORDER PAGE
-Route.get("/movie/order", "MovieController.order");
-Route.get("/api/venues/:id", "MovieController.getVenues");
-Route.get("/api/reservations/:id", "ReservationController.getById");
+Route.group(() => {
+  Route.get("/movie/order", "MovieController.order");
+  Route.get("/api/venues/:id", "MovieController.getVenues");
+  Route.get("/api/reservations/:id", "ReservationController.getById");
+}).middleware(["auth"]);
+
 Route.get("/order/tickets/", "ReservationController.index");
 Route.post("/api/order", "ReservationController.orderTickets");
 
 // @AUTHENTICATION
-Route.get("/login", "UserController.index");
-Route.post("/login", "UserController.login").validator("LoginUser");
+Route.group(() => {
+  Route.get("/login", "UserController.index");
+  Route.post("/login", "UserController.login").validator("LoginUser");
 
-Route.get("/register", "UserController.register");
-Route.post("/register", "UserController.create").validator("CreateUser");
+  Route.get("/register", "UserController.register");
+  Route.post("/register", "UserController.create").validator("CreateUser");
+}).middleware(["guest"]);
 
 Route.get("/logout", "UserController.logout");
 
 // Create a new movie
-Route.get("/admin", "MovieController.create");
+Route.group(() => {
+  Route.get("/admin", "MovieController.create");
+}).middleware("auth", "admin");
 
 // Use ticket
 Route.get("/useticket", "MovieController.useTicket");

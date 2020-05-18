@@ -29,10 +29,21 @@
     font-size: 14px;
     font-weight: bold;
     color: $input-text-colour;
-    margin-left: 16px;
-    margin-top: 5px;
+    padding-left: 16px;
+    box-sizing: border-box;
+    padding-top: 16px;
     &::placeholder {
       color: $input-text-colour;
+    }
+
+    &:autofill {
+      background-color: transparent;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background: white;
+      }
     }
 
     &--select {
@@ -82,4 +93,12 @@
       padding: 0.5rem 1rem;
     }
   }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: $input-text-colour !important;
 }
