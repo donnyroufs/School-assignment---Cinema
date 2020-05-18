@@ -11,6 +11,7 @@
   @media screen and (min-width: 968px) {
     margin: 0;
   }
+  animation: fade-in 0.75s forwards cubic-bezier(0.65, 0, 0.32, 1.55);
 }
 .mobile {
   @media screen and (min-width: 968px) {
@@ -34,4 +35,17 @@
   font-weight: bold;
   font-size: 0.7rem;
   color: rgb(241, 80, 80);
+}
+
+.loader {
+  display: none;
+  position: absolute;
+  // display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background: white;
+  text-transform: uppercase;
+  font-weight: bold;
 }

@@ -4,6 +4,9 @@ const Reservation = use("App/Models/Reservation");
 const Database = use("Database");
 
 class ReservationController {
+  async index({ params, response, view }) {
+    return view.render("tickets");
+  }
   async getById({ params, response }) {
     const { id } = params;
 
@@ -30,15 +33,20 @@ class ReservationController {
   }
 
   async orderTickets({ auth, params, request, response }) {
-    const { schedule_id, seats, total_price } = request.all();
-    console.log(seats);
+    const { schedule_id, seats, total_price, movie_title } = request.all();
     const arrSeats = seats.split(",");
+    let tickets = [];
     await Database.transaction(async (trx) => {
       for (let seat of arrSeats) {
+        const uniqueTicketNumber = (Date.now() * Math.random())
+          .toString()
+          .substring(0, 8);
+        tickets.push(uniqueTicketNumber);
         await trx
           .insert({
             schedule_movie_id: schedule_id,
             seat_number: seat,
+            ticket_number: uniqueTicketNumber,
             user_id: auth.user.id,
             created_at: new Date(),
             updated_at: new Date(),
@@ -46,8 +54,14 @@ class ReservationController {
           .into("reservations");
       }
     });
+
+    console.log(tickets);
     // return response.redirect("/");
-    return response.route("/", { price: total_price });
+    return response.redirect(
+      `/order/tickets?numbers=${JSON.stringify(
+        tickets
+      )}&movieTitle=${movie_title}`
+    );
   }
 }
 

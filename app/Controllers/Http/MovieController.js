@@ -8,7 +8,7 @@
  * Resourceful controller for interacting with movies
  */
 
-const fakeImage = `https://images.unsplash.com/photo-1521967906867-14ec9d64bee8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80`;
+const _ = use("lodash");
 const Movie = use("App/Models/Movie");
 const Venue = use("App/Models/Venue");
 const Database = use("Database");
@@ -59,6 +59,16 @@ class MovieController {
       venues: venues.rows,
       schedule: schedule.rows,
     });
+  }
+
+  async useTicket({ request, response, view }) {
+    return view.render("useticket");
+  }
+
+  async scan({ request, response, view }) {
+    const { number } = request.get();
+
+    return response.send({ number });
   }
   /**
    * Render a form to be used for creating a new movie.
@@ -130,6 +140,7 @@ class MovieController {
 
     return view.render("movie", {
       movie: movie.toJSON(),
+      venues: _.uniqBy(movie.toJSON().venues, "name"),
       date: date.toLocaleDateString("en-EN", options),
     });
   }

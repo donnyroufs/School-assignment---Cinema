@@ -27,6 +27,7 @@ Route.post("/movie", "MovieController.store");
 Route.get("/movie/order", "MovieController.order");
 Route.get("/api/venues/:id", "MovieController.getVenues");
 Route.get("/api/reservations/:id", "ReservationController.getById");
+Route.get("/order/tickets/", "ReservationController.index");
 Route.post("/api/order", "ReservationController.orderTickets");
 
 // @AUTHENTICATION
@@ -40,3 +41,7 @@ Route.get("/logout", "UserController.logout");
 
 // Create a new movie
 Route.get("/admin", "MovieController.create");
+
+// Use ticket
+Route.get("/useticket", "MovieController.useTicket");
+Route.get("/api/scan", "MovieController.scan");

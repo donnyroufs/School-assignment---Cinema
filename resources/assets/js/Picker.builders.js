@@ -26,6 +26,7 @@ const seat = ({ state, view, template }) => {
   view.seats.classList = state
     ? "picker__body"
     : "picker__body picker__body--disabled";
+
   state.forEach((seat) =>
     seats[seat - 1].classList.add("picker__seat--reserved")
   );

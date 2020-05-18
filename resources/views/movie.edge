@@ -19,9 +19,21 @@ Cinema - {{ movie.title }}
             <div class="information__wrapper">
                 <h5 class="information__subtitle">Venue(s)</h5>
                 <p class="information__date">
-                    @each(venue in movie.venues)
+                    @each(venue in venues)
                     {{ venue.name }}
                     @endeach
+                </p>
+            </div>
+            <div class="information__wrapper">
+                <h5 class="information__subtitle">Price</h5>
+                <p class="information__date">
+                    € {{ movie.price.toFixed(2) }}
+                </p>
+            </div>
+            <div class="information__wrapper">
+                <h5 class="information__subtitle">duration</h5>
+                <p class="information__date">
+                    {{ movie.duration  }} minutes
                 </p>
             </div>
         </aside>

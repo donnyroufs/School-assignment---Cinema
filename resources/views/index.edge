@@ -31,6 +31,17 @@ Cinema - Movies for everyone
     </button>
 </section>
 <section class="movies" data-view="movies" data-state="movies:array">
+    <div class="loader" data-view="loader">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            style="margin: auto; background: transparent; display: block; shape-rendering: auto;" width="120px"
+            height="120px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+            <path d="M10 50A40 40 0 0 0 90 50A40 42.8 0 0 1 10 50" fill="#6b84eb" stroke="none"
+                transform="rotate(1.96091 50 51.4)">
+                <animateTransform attributeName="transform" type="rotate" dur="1.01010101010101s"
+                    repeatCount="indefinite" keyTimes="0;1" values="0 50 51.4;360 50 51.4"></animateTransform>
+            </path>
+        </svg>
+    </div>
     @each(movie in movies)
     @include("partials/card")
     @endeach

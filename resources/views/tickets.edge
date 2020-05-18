@@ -3,37 +3,23 @@
 @section("title")
 Cinema - Ordered Tickets
 @endsection
+
 @section("content")
-<div class="layout layout--auth">
-    <form class="form" action="{{ route('UserController.create') }}" method="POST">
-        {{ csrfField() }}
-        <h1 class="form__title">Register</h1>
-        <div class="input input--form">
-            <label for="username" class="input__label">username</label>
-            <input type="text" class="input__field" name="username" placeholder="your name">
-        </div>
-        @if(hasErrorFor('username'))
-        <span class="flash"> {{ getErrorFor('username') }} </span>
-        @endif
-        <div class="input input--form">
-            <label for="password" class="input__label">password</label>
-            <input type="password" class="input__field" name="password" placeholder="enter password">
-        </div>
-        @if(hasErrorFor('password'))
-        <span class="flash"> {{ getErrorFor('password') }} </span>
-        @endif
-        <footer class="form__footer">
+<section class="tickets">
+    <h2 class="tickets__title">
+        You bought these tickets for the movie: <span class="hightlight hightlight--movie">{{ movie_name }}</span>
+    </h2>
 
-            <button type="submit" class="button button--primary button--form">
-                create account
-            </button>
-            <a href="/login" class="form__cta">Already have an account?
-                <strong class="form__strong">
-                    Log in
-                </strong>
-            </a>
-        </footer>
-    </form>
-</div>
+    <div class="tickets__container">
+        <div class="tickets__card">
+            <h2 class="tickets__ticket">
+                ticket number
+            </h2>
+            <strong class="tickets__number">
 
+            </strong>
+        </div>
+    </div>
+
+</section>
 @endsection

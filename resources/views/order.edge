@@ -166,8 +166,9 @@ Cinema - Order Ticket(s)
         </main>
 
         <footer class="picker__footer">
+            @loggedIn
             <div class="picker__status" data-view="status">
-                You need to select a hall in order to use this.
+                Please select a hall, in order to select seats.
             </div>
             <div class="information__wrapper information__wrapper--checkout">
                 <h5 class="information__subtitle">Total Price</h5>
@@ -178,6 +179,11 @@ Cinema - Order Ticket(s)
             <button class="button button--primary button--accent button--disabled" data-view="orderBtn"
                 data-action="click:buyTickets">Order
                 tickets</button>
+            @else
+            <div class="picker__status picker__status--center">
+                You need to be logged in, to purchase tickets.
+            </div>
+            @endloggedIn
         </footer>
     </section>
 </div>
@@ -192,6 +198,7 @@ Cinema - Order Ticket(s)
     <input type="text" name="schedule_id" data-view="formSchedule" class="hide">
     <input type="text" name="seats" data-view="formSeats" class="hide">
     <input type="text" name="total_price" data-view="formPrice" class="hide">
+    <input type="text" name="movie_title" data-view="formTitle" class="hide">
 </form>
 @endsection
 
