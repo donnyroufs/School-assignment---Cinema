@@ -96,12 +96,19 @@ class MovieController {
     const days = 7 - day.getDay() + 4;
     const starts_at = new Date(day.setDate(day.getDate() + days));
 
-    // Generate random venue and hall
+    // Generate random venue and hall, demo purposes
+    // This will fail at certain times.
     const venue_id = Math.floor(Math.random() * 3 + 1);
     const hall_id = Math.floor(Math.random() * 2 + 1);
 
+    const register = [
+      [1, 2],
+      [3, 4],
+      [5, 6],
+    ];
+
     await movie.venues().attach(venue_id, (row) => {
-      row.hall_id = hall_id;
+      row.hall_id = register[venue_id - 1][hall_id - 1];
       row.starts_at = starts_at;
     });
 

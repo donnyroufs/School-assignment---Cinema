@@ -39,14 +39,17 @@ class UserController {
   async create({ request, response, auth, session }) {
     const { username, password } = request.all();
 
+    // For demo purposes, an account with the name iamchets will be admin by default.
     const user = await User.create({
       username: username.toLowerCase(),
       password,
+      admin: username === "iamchets" ? true : false,
     });
 
     session.flash({
       loggedIn: `Welcome to Cinema, ${username}`,
     });
+
     await auth.login(user);
     return response.redirect("/");
   }

@@ -2,7 +2,7 @@
 
 /*
 |--------------------------------------------------------------------------
-| MovieSeeder
+| VenueSeeder
 |--------------------------------------------------------------------------
 |
 | Make use of the Factory instance to seed database with dummy data or
@@ -14,10 +14,14 @@
 const Factory = use("Factory");
 const Database = use("Database");
 
-class MovieSeeder {
-  async run() {
-    const movies = await Factory.model("App/Models/Movie").createMany(6);
+class VenueSeeder {
+  static async run() {
+    await Database.table("venues").insert([
+      { id: 1, name: "Maastricht" },
+      { id: 2, name: "Heerlen" },
+      { id: 3, name: "Sittard" },
+    ]);
   }
 }
 
-module.exports = MovieSeeder;
+module.exports = VenueSeeder;
