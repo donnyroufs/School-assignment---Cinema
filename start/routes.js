@@ -50,5 +50,5 @@ Route.group(() => {
 }).middleware("auth", "admin");
 
 // Use ticket
-Route.get("/useticket", "MovieController.useTicket");
-Route.get("/api/scan", "MovieController.scan");
+Route.get("/useticket", "ReservationController.useTicket");
+Route.post("/api/scan", "ReservationController.scan");

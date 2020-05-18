@@ -49,3 +49,34 @@
   text-transform: uppercase;
   font-weight: bold;
 }
+
+.footer {
+  margin-top: 80px;
+  margin-bottom: 40px;
+  padding: 0 2rem;
+  &__links {
+    order: 2;
+    display: none;
+  }
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 0.9rem;
+  padding-bottom: 2rem;
+
+  &__link {
+    margin-bottom: 0.5rem;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  @media screen and (min-width: 968px) {
+    margin-top: 200px;
+    padding: 0;
+    justify-content: space-between;
+    &__links {
+      display: flex;
+      flex-flow: column nowrap;
+    }
+  }
+}

@@ -5,13 +5,14 @@ Cinema - Ordered Tickets
 @endsection
 
 @section("content")
-<section class="search" id="search">
-    <div class="input" data-view="input">
-        <label class="input__label">ticket number</label>
-        <input class="input__field" type="text" placeholder="enter ticket" data-view="ticketNumber" />
+<form class="search" action="{{ route('ReservationController.scan') }}" method="POST">
+    {{ csrfField() }}
+    <div class=" input" data-view="input">
+        <label class="input__label" for="ticket">ticket number</label>
+        <input class="input__field" type="text" name="ticket" placeholder="enter ticket" data-view="ticketNumber" />
     </div>
     <button class="button button--primary" data-action="click:validateTicket">
         search
     </button>
-</section>
+</form>
 @endsection

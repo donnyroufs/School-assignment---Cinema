@@ -1,6 +1,5 @@
 import Movies from "./Movies";
 import Picker from "./Picker";
-import Ticket from "./UseTicket";
 
 const _n = document.querySelector(".tickets__container");
 

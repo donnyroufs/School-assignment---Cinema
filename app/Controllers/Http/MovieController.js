@@ -61,15 +61,6 @@ class MovieController {
     });
   }
 
-  async useTicket({ request, response, view }) {
-    return view.render("useticket");
-  }
-
-  async scan({ request, response, view }) {
-    const { number } = request.get();
-
-    return response.send({ number });
-  }
   /**
    * Render a form to be used for creating a new movie.
    * GET movies/create

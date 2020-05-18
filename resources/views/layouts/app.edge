@@ -24,12 +24,33 @@
     {{ flashMessage("loggedOut") }}
   </div>
   @endif
+
+  @if(flashMessage('scanned'))
+  <div class="toast toast--info">
+    {{ flashMessage("scanned") }}
+  </div>
+  @endif
+
+  @if(flashMessage('notFound'))
+  <div class="toast toast--danger">
+    {{ flashMessage("notFound") }}
+  </div>
+  @endif
+
   <div id="App">
     @include('partials/header')
     @section("content")
 
     @endsection
+    <footer class="footer">
+      <div class="footer__links">
+        <a href="/useticket" class="header__link header__link--bold footer__link">use your ticket</a>
+        <a href="/admin" class="header__link header__link footer__link">admin panel</a>
+      </div>
+      <div class="footer__copy">Copyrights 2020 Donny Roufs</div>
+    </footer>
   </div>
+
 
   @section("scripts")
 

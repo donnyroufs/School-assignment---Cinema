@@ -36,8 +36,17 @@ class UserController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async create({ request, response, auth }) {
-    const user = await User.create(request.only(["username", "password"]));
+  async create({ request, response, auth, session }) {
+    const { username, password } = request.all();
+
+    const user = await User.create({
+      username: username.toLowerCase(),
+      password,
+    });
+
+    session.flash({
+      loggedIn: `Welcome to Cinema, ${username}`,
+    });
     await auth.login(user);
     return response.redirect("/");
   }
@@ -45,7 +54,7 @@ class UserController {
   async login({ request, auth, response, session }) {
     const { username, password } = request.all();
     try {
-      const a = await auth.attempt(username, password);
+      const a = await auth.attempt(username.toLowerCase(), password);
       session.flash({ loggedIn: `You have logged in as ${username}` });
       return response.redirect("/");
     } catch (err) {

@@ -55,13 +55,36 @@ class ReservationController {
       }
     });
 
-    console.log(tickets);
-    // return response.redirect("/");
     return response.redirect(
       `/order/tickets?numbers=${JSON.stringify(
         tickets
       )}&movieTitle=${movie_title}`
     );
+  }
+  async useTicket({ request, response, view }) {
+    return view.render("useticket");
+  }
+
+  async scan({ request, response, session }) {
+    const { ticket } = request.all();
+    try {
+      const _ticket = await Reservation.findBy("ticket_number", ticket);
+      if (_ticket && _ticket.scanned) {
+        session.flash({ notFound: "Ticket has already been scanned." });
+      } else if (_ticket && !_ticket.scanned) {
+        _ticket.scanned = true;
+        await _ticket.save();
+        session.flash({ scanned: "Ticket has been scanned!" });
+      } else if (!ticket) {
+        session.flash({ notFound: "Input field is empty." });
+      } else {
+        session.flash({ notFound: "Could not find ticket." });
+      }
+    } catch (err) {
+      session.flash({ notFound: "Something went wrong.." });
+    }
+
+    return response.redirect("back");
   }
 }
 

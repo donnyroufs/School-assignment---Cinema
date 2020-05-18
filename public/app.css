@@ -766,10 +766,10 @@ input:-webkit-autofill:active {
   align-items: center;
   font-weight: bold;
   text-transform: uppercase;
-  font-size: 0.85rem;
-  letter-spacing: 0.03em;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
   height: 150px;
-  width: 300px;
+  width: 350px;
   padding: 2rem;
   border-radius: 12px;
   animation: toast 10s ease-in-out backwards; }
@@ -777,6 +777,9 @@ input:-webkit-autofill:active {
     background: #bcf66291; }
   .toast--info {
     background: #6b84eb;
+    color: white; }
+  .toast--danger {
+    background: #df3e3e;
     color: white; }
 
 #App {
@@ -816,3 +819,28 @@ input:-webkit-autofill:active {
   background: white;
   text-transform: uppercase;
   font-weight: bold; }
+
+.footer {
+  margin-top: 80px;
+  margin-bottom: 40px;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 0.9rem;
+  padding-bottom: 2rem; }
+  .footer__links {
+    order: 2;
+    display: none; }
+  .footer__link {
+    margin-bottom: 0.5rem; }
+    .footer__link:hover {
+      text-decoration: underline; }
+  @media screen and (min-width: 968px) {
+    .footer {
+      margin-top: 200px;
+      padding: 0;
+      justify-content: space-between; }
+      .footer__links {
+        display: flex;
+        flex-flow: column nowrap; } }
