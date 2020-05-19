@@ -10,10 +10,12 @@
   flex-flow: column nowrap;
   &__left {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-around;
   }
   &__wrapper {
     margin: 2rem 1rem 2rem 1rem;
+    min-width: 100px;
   }
   &__image {
     height: 500px;
